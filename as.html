@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="as.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <input type="text" placeholder="Enter the city">
+            <button id="search"><i class="bi bi-search"></i></button>
+
+            <img id="do" src="clouds.png" alt="">
+            <div id="temp">
+                <h1 id="temps">22 <sup>o</sup>C</h1>
+                <h3>Bangalore</h3>
+            </div>
+            <div id="otherInfo">
+                <div id="humidity"> <h4 id="humiditys" >53%</h4> <i class="bi bi-water"></i><br>
+                <span>Humidity</span></div>
+                <div id="windspeed"> <h4 id="windspeeds">74.5km/h</h4> <i class="bi bi-wind"></i><br>
+                <span>Windspeed</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let symbol = document.querySelector("#do")
+        let input = document.querySelector("input")
+        let serbtn = document.querySelector("#search")
+        const apikey="03ff4c3c609fc319be937bd9be1b7bef"
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + city +`&appid=${apikey}` )
+            var data = await response.json()
+            console.log(data)
+            document.querySelector("h3").innerHTML=data.name
+            document.querySelector("h1").innerHTML=data.main.temp+"°C"
+            document.querySelector("#humiditys").innerHTML=data.main.humidity+"%"
+            document.querySelector("#windspeeds").innerHTML=data.main.pressure+"Km/h"
+
+            if(data.weather[0].main=="Haze"){
+               symbol.src= "mist.png"
+            }
+            else if(data.weather[0].main=="Clear"){
+               symbol.src= "clear.png"
+            }
+            else if(data.weather[0].main=="Clouds"){
+               symbol.src= "clouds.png"
+            }
+            else if(data.weather[0].main=="Humidity"){
+               symbol.src= "humidity.png"
+            }
+            else if(data.weather[0].main=="Rain"){
+               symbol.src= "rain.png"
+            }
+            else if(data.weather[0].main=="Snow"){
+               symbol.src= "snow.png"
+            }
+            else if(data.weather[0].main=="Wind"){
+               symbol.src= "wind.png"
+            }
+        }
+        serbtn.addEventListener("click",()=>{ 
+            checkWeather(input.value)
+        })
+
+
+        
+    </script>
+</body>  
+</html>

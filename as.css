@@ -1,0 +1,68 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:    sans-serif;
+}
+body{
+    background-color: #0f172a;
+    background-image: url("https://c1.wallpaperflare.com/preview/930/682/373/sky-cloud-light-the-light-of-the-sun.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.card{
+    display: inline-block;
+    margin-left: 37%;
+    margin-top: 5%;
+    border-radius: 12px;
+    width: 336px;
+    height: 467px;
+    background-color: #33415570;
+    backdrop-filter: blur(5px);
+    
+}
+input{
+    border-radius: 22px;
+    width: 251px;
+    height: 45px;
+    margin-left: 10px;
+    border: none;
+    margin-top: 29px;
+    padding-left: 8px;
+}
+#search{
+    border-radius: 50%;
+    height: 46px;
+    width: 47px;
+    border: none;
+}
+#do{
+    width: 10vw;
+   margin-left: 98px;
+   margin-top: 19px;
+    
+}
+#temp{
+    margin-left: 34%;
+    margin-top: 12px;
+    color: white;
+    font-size: 23px;
+}
+
+#humidity{
+    color: white;
+    font-size: 25px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 38px;
+}
+#windspeed{
+    color: white;
+    font-size: 25px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 49px;
+}
+span{
+    font-size: 12px;
+    margin-bottom: 13px;
+}
